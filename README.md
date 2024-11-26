@@ -31,7 +31,7 @@ Certifique-se de que você possui os seguintes itens instalados no sistema:
 Baixe o código-fonte do projeto ou clone o repositório no diretório desejado:
 
 ```bash
-git clone https://github.com/seu-repositorio/selenium-tce-sp.git
+git clone https://github.com/JoaoVOSantos/Automa-o-TCESP.git
 cd selenium-tce-sp
 ```
 
