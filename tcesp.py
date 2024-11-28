@@ -45,10 +45,6 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # Imprimir o diretório de downloads configurado
 print(f"Os arquivos serão baixados no diretório: {diretorio_downloads}")
 
-
-# Imprimir o diretório configurado para downloads
-print(f"Os arquivos serão baixados no diretório: {diretorio_downloads}")
-
 # Configurando o serviço do ChromeDriver
 service = Service(caminho_driver)
 
@@ -71,7 +67,6 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # Imprimir o diretório de downloads configurado
 print(f"Os arquivos serão baixados no diretório: {diretorio_downloads}")
 
-# Função para verificar se o arquivo foi completamente baixado
 # Função para verificar se o arquivo foi completamente baixado
 def verificar_download(download_dir, nome_arquivo, tempo_espera=60):
     tempo_inicial = time.time()
@@ -96,6 +91,7 @@ def verificar_download(download_dir, nome_arquivo, tempo_espera=60):
 
 # Lista de usuários
 usuarios = [
+    # troque por usuarios de sua escolha e quantos quiser
     {"email": "teste@gmail.com", "senha": "teste123"},
 ]
 
@@ -155,9 +151,9 @@ for usuario in usuarios:
 
             # Esperar pelo download
             if verificar_download(diretorio_downloads, nome_arquivo_esperado):
-                print(f"Download do arquivo concluído com sucesso para o usuário {usuario['email']}.")
+                print(f"Download do arquivo concluído com sucesso para o usuário {nome_pessoa}.")
             else:
-                print(f"Erro: O arquivo para o usuário {usuario['email']} não foi baixado dentro do tempo esperado.")
+                print(f"Erro: O arquivo para o usuário {nome_pessoa} não foi baixado dentro do tempo esperado.")
 
 
             # Fechar modal
@@ -179,7 +175,7 @@ for usuario in usuarios:
             botao_logout.click()
 
     except Exception as e:
-        print(f"Erro ao processar o usuário {usuario['email']}: {e}")
+        print(f"Erro ao processar o usuário {nome_pessoa}")
 
 # Encerrar o navegador após o processamento de todos os usuários
 driver.quit()
