@@ -17,7 +17,7 @@ else:  # Execução direta do script Python
 
 # Caminho para o diretório de downloads padrão
 usuario = os.getlogin()  # Nome do usuário do sistema
-diretorio_downloads = os.path.join("C:\\Users\\", usuario, "\\Downloads")
+diretorio_downloads = os.path.join("C:\\Users\\", usuario, "\\Downloads\\")
 
 # Verificar se a pasta Downloads existe, caso contrário, usar o diretório do executável
 if not os.path.exists(diretorio_downloads):
@@ -46,13 +46,6 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # Imprimir o diretório de downloads configurado
 print(f"Os arquivos serão baixados no diretório: {diretorio_downloads}")
 
-# Configurando o serviço do ChromeDriver
-service = Service(caminho_driver)
-
-# Configurando opções do navegador
-chrome_options = Options()
-chrome_options.add_argument("--start-maximized")  # Abrir em tela cheia
-
 
 # Função para verificar se o arquivo foi completamente baixado
 def verificar_download(download_dir, nome_arquivo, tempo_espera=60):
@@ -79,7 +72,8 @@ def verificar_download(download_dir, nome_arquivo, tempo_espera=60):
 # Lista de usuários
 usuarios = [
     # troque por usuarios de sua escolha e quantos quiser
-    {"email": "teste@gmail.com", "senha": "teste123"},
+    {"email": "TESTE@gmail.com", "senha": "TESTE123"},
+    
 ]
 
 # Processar cada usuário
