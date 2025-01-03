@@ -31,12 +31,13 @@ service = Service(caminho_driver)
 # Configurando opções do navegador
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Abrir em tela cheia
+# Configurar as preferências de download do Chrome
 chrome_options.add_experimental_option("prefs", {
-    "download.default_directory": diretorio_downloads,  # Diretório de downloads
+    "download.default_directory": diretorio_downloads,  # Pasta de download
     "download.prompt_for_download": False,  # Não solicitar confirmação
-    "download.directory_upgrade": True,  # Atualizar o diretório automaticamente
+    "download.directory_upgrade": True,  # Forçar o download para o diretório especificado
     "safebrowsing.enabled": True,  # Habilitar navegação segura
-    "safebrowsing.disable_download_protection": True  # Desabilitar proteção contra download
+    "safebrowsing.disable_download_protection": True  # Desabilitar a proteção contra download de arquivos
 })
 
 # Inicializando o driver
@@ -52,20 +53,6 @@ service = Service(caminho_driver)
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Abrir em tela cheia
 
-# Configurar as preferências de download do Chrome
-chrome_options.add_experimental_option("prefs", {
-    "download.default_directory": diretorio_downloads,  # Pasta de download
-    "download.prompt_for_download": False,  # Não solicitar confirmação
-    "download.directory_upgrade": True,  # Forçar o download para o diretório especificado
-    "safebrowsing.enabled": True,  # Habilitar navegação segura
-    "safebrowsing.disable_download_protection": True  # Desabilitar a proteção contra download de arquivos
-})
-
-# Inicializando o driver
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-# Imprimir o diretório de downloads configurado
-print(f"Os arquivos serão baixados no diretório: {diretorio_downloads}")
 
 # Função para verificar se o arquivo foi completamente baixado
 def verificar_download(download_dir, nome_arquivo, tempo_espera=60):
